@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Display</title>
+    <title>Resume PDF Display</title>
     <style>
         /* Reset default body margin and padding */
         body, html {
@@ -14,26 +14,42 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            background-color: #f0f0f0;
         }
 
-        /* Full-screen image container */
-        .image-container {
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
+        /* Full-screen PDF container with hover effect */
+        .pdf-container {
+            width: 90%;
+            height: 90%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        /* Hover effect */
+        .pdf-container:hover {
+            transform: scale(1.02); /* Slightly zoom in */
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Darker shadow */
+        }
+
+        /* Responsive PDF display */
+        .pdf-viewer {
             width: 100%;
             height: 100%;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <div class="image-container" id="imageContainer"></div>
+    <div class="pdf-container">
+        <iframe class="pdf-viewer" src="resume.pdf"></iframe>
+    </div>
 
     <script>
-        // Set the image path dynamically
-        const imagePath = 'resume.jpg'; // Replace with your image path
-        document.getElementById('imageContainer').style.backgroundImage = `url(${imagePath})`;
+        // Set the PDF path dynamically if needed
+        const pdfPath = 'resume.pdf'; // Replace with the actual PDF path
+        document.querySelector('.pdf-viewer').src = pdfPath;
     </script>
 </body>
 </html>
