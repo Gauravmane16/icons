@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Screen Responsive Image</title>
+    <title>Resume Display</title>
     <style>
         /* Reset default body margin and padding */
         body, html {
@@ -19,16 +19,21 @@
 
         /* Full-screen image container */
         .image-container {
-            background-image: url('https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg');
             background-position: center;
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: contain;
             width: 100%;
             height: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="image-container"></div>
+    <div class="image-container" id="imageContainer"></div>
+
+    <script>
+        // Set the image path dynamically
+        const imagePath = '/resume.jpg'; // Replace with your image path
+        document.getElementById('imageContainer').style.backgroundImage = `url(${imagePath})`;
+    </script>
 </body>
 </html>
